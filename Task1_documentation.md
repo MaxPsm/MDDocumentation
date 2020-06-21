@@ -4,7 +4,7 @@
 Реализовать оптимизацию по AST дереву вида:
 | До оптимизации | Результат оптимизации |
 |-|-|
-| c = `3 < 4`  <br>c = `3 < 2`  <br>c = `3 < 2` <br>c = `3 > 4` <br>c = `3 >= 4` <br>c = `3 >= 2` | c = `true`<br>c = `false` <br>c = `true`<br>c = `true`<br>c = `false`<br>c = `false`<br>c = `true`|
+| c = `3 < 4`  <br>c = `3 < 2`  <br>c = `3 > 2` <br>c = `3 > 4` <br>c = `3 >= 4` <br>c = `3 >= 2` | c = `true`<br>c = `false` <br>c = `true`<br>c = `false`<br>c = `false`<br>c = `true`|
 
 
 #### Команда
