@@ -150,8 +150,7 @@ c = 3 < 2;
 public void TestOpEQGREATER1()
 {
 var c;
-c = 3 >= 2;
-");
+c = 3 >= 2;");
     var expected = new[] {
         "var c;",
         "c = true;"
