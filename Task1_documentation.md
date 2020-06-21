@@ -85,30 +85,30 @@ public class OptExprWithOperationsBetweenConsts : ChangeVisitor
 ```csharp
 public static class ASTOptimizer
 {
-	private static List<ChangeVisitor> ASTOptimizations { get; } = new List<ChangeVisitor>
-        {
-            /* ... */
-            new OptExprWithOperationsBetweenConsts(),
-            /* ... */
-        };
+    private static List<ChangeVisitor> ASTOptimizations { get; } = new List<ChangeVisitor>
+    {
+        /* ... */
+        new OptExprWithOperationsBetweenConsts(),
+        /* ... */
+    };
 
-        public static void Optimize(Parser parser, List<ChangeVisitor> Optimizations = null)
+    public static void Optimize(Parser parser, List<ChangeVisitor> Optimizations = null)
+    {
+        Optimizations = Optimizations ?? ASTOptimizations;
+        var optInd = 0;
+        do
         {
-            Optimizations = Optimizations ?? ASTOptimizations;
-            var optInd = 0;
-            do
+            parser.root.Visit(Optimizations[optInd]);
+            if (Optimizations[optInd].Changed)
             {
-                parser.root.Visit(Optimizations[optInd]);
-                if (Optimizations[optInd].Changed)
-                {
-                    optInd = 0;
-                }
-                else
-                {
-                    ++optInd;
-                }
-            } while (optInd < Optimizations.Count);
-        }
+                optInd = 0;
+            }
+            else
+            {
+                ++optInd;
+            }
+        } while (optInd < Optimizations.Count);
+    }
 }
 ```
 
