@@ -50,7 +50,7 @@ public class OptExprWithOperationsBetweenConsts : ChangeVisitor
                     }
                     break;
 
-               case OpType.GREATER: //если операция - больше
+                case OpType.GREATER: //если операция - больше
                     if (binop.Left is IntNumNode lbn1 && binop.Right is IntNumNode rbn1)
                     {
                         ReplaceExpr(binop, new BoolValNode(lbn1.Num > rbn1.Num));
