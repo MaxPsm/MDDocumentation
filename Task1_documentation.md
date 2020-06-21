@@ -115,9 +115,10 @@ public static class ASTOptimizer
 [Test]
 public void TestOpLess1()
 {
+    var AST = BuildAST(@"
 var c;
 c = 3 < 15;
-")
+");
     var expected = new[] {
         "var c;",
         "c = true;"
@@ -132,9 +133,10 @@ c = 3 < 15;
 [Test]
 public void TestOpLess2()
 {
+    var AST = BuildAST(@"
 var c;
 c = 3 < 2;
-")
+");
     var expected = new[] {
         "var c;",
         "c = false;"
@@ -149,9 +151,10 @@ c = 3 < 2;
 [Test]
 public void TestOpEQGREATER1()
 {
+    var AST = BuildAST(@"
 var c;
 c = 3 >= 2;
-")
+");
     var expected = new[] {
         "var c;",
         "c = true;"
